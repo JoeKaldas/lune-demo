@@ -33,20 +33,6 @@ label:not(.boolean):not(.collection_radio_buttons):not(.collection_check_boxes):
     right: 10px;
     top: 10px;
   }
-
-  &.search {
-    &:after {
-      content: "\f002";
-    }
-  }
-
-  &.active {
-    &:after {
-      content: "\f110";
-      -webkit-animation: fa-spin 2s infinite linear;
-      animation: fa-spin 2s infinite linear;
-    }
-  }
 }
 
 .checkboxes .form-group {

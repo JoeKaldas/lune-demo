@@ -4,4 +4,8 @@ class Location < ApplicationRecord
   has_and_belongs_to_many :movies
 
   ransack_alias :any, :city_or_country
+
+  def address
+    "#{city} - #{country}"
+  end
 end

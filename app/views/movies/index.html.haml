@@ -19,6 +19,8 @@
   = render "shared/search",
     url: movies_path,
     placeholder: t(".search.placeholder"),
-    records: @movies
+    records: @movies do
+
+    = render "search"
 
 = render "shared/records", records: @movies, total: @total
