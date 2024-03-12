@@ -16,6 +16,13 @@ module LuneDemo
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w(assets tasks))
 
+    # default language and fallbacks
+    config.i18n.default_locale = :en
+    config.i18n.available_locales = %i[en]
+    config.i18n.fallbacks = [:en]
+
+    config.cache_store = :memory_store, { pool_size: ENV.fetch("RAILS_MAX_THREADS") { 5 }, pool_timeout: 5 }
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -23,5 +30,7 @@ module LuneDemo
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.active_record.schema_format = :sql
   end
 end
