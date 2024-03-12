@@ -2,9 +2,11 @@
   .card.card-colored
     .card-body
       .form-row.align-items-center
-        .col-3.col-md-4.order-1
+        .col-3.col-md-4
           = movie.name
-        .col-3.col-md-6.order-2
+        .col-3.col-md-5
           = movie.description.truncate(60)
-        .col-3.col-md-2.order-3
+        .col-3.col-md-2
           = movie.year
+        .col-3.col-md-1
+          = movie.rating

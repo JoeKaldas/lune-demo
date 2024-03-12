@@ -51,6 +51,7 @@ en:
       created_at: Created At
       label: Sort by...
       name: Name
+      rating: Rating
   date:
     abbr_day_names:
       - Sun
