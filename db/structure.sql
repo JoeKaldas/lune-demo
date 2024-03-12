@@ -61,6 +61,16 @@ ALTER SEQUENCE public.actors_id_seq OWNED BY public.actors.id;
 
 
 --
+-- Name: actors_movies; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.actors_movies (
+    movie_id bigint NOT NULL,
+    actor_id bigint NOT NULL
+);
+
+
+--
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -115,16 +125,6 @@ CREATE TABLE public.movies (
     year integer NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
-);
-
-
---
--- Name: movies_actors; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.movies_actors (
-    movie_id bigint NOT NULL,
-    actor_id bigint NOT NULL
 );
 
 
@@ -650,10 +650,10 @@ ALTER TABLE ONLY public.solid_queue_semaphores
 
 
 --
--- Name: index_movies_actors; Type: INDEX; Schema: public; Owner: -
+-- Name: index_actors_movies; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_movies_actors ON public.movies_actors USING btree (movie_id, actor_id);
+CREATE UNIQUE INDEX index_actors_movies ON public.actors_movies USING btree (movie_id, actor_id);
 
 
 --
