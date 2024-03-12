@@ -49,10 +49,7 @@ en:
   sorting:
     default:
       created_at: Created At
-      first_name: First Name
-      full_name: Name
       label: Sort by...
-      last_name: Last Name
       name: Name
   date:
     abbr_day_names:

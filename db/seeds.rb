@@ -11,5 +11,5 @@ require "factory_bot"
 if Rails.env.development?
   FactoryBot.create_list(:movie, 5)
   FactoryBot.create_list(:actor, 10)
-  FactoryBot.create_list(:review, 10, movie: Movie.all.sample)
+  FactoryBot.create_list(:review, 10, movie_id: Movie.all.ids.sample)
 end

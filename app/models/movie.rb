@@ -14,5 +14,5 @@ class Movie < ApplicationRecord
 
   has_and_belongs_to_many :actors
 
-  ransack_alias :any, :name_or_actors_full_name
+  ransack_alias :any, :name_or_actors_name
 end

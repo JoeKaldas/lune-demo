@@ -33,9 +33,7 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.actors (
     id bigint NOT NULL,
-    first_name character varying NOT NULL,
-    last_name character varying NOT NULL,
-    full_name public.citext NOT NULL,
+    name public.citext NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
