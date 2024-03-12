@@ -1,0 +1,12 @@
+= turbo_frame_tag dom_id(review) do
+  .card.card-colored
+    .card-body
+      .form-row.align-items-center
+        .col-3.col-md-3.order-1
+          = review.movie.name
+        .col-3.col-md-3.order-1
+          = review.user
+        .col-3.col-md-1.order-3
+          = review.rating
+        .col-3.col-md-5.order-2
+          = review.comment

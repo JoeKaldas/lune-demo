@@ -130,6 +130,12 @@ en:
       with_day_abbr: "%H:%M, %a %d/%m/%y"
       filename: "%d-%m-%y-%H-%M"
       iso: "%d-%m-%Y %H:%M"
+  forms:
+    select:
+      blank:
+        default: "-- none --"
+        choose: "-- please select --"
+        any: "-- any --"
   actors:
     empty:
       heading: You don't have any actors yet.
@@ -150,3 +156,11 @@ en:
     index:
       search:
         placeholder: Search by name or actor
+  reviews:
+    empty:
+      heading: You don't have any reviews yet.
+      body: |
+        Once a user reviewd a movie, it will show up here.
+    index:
+      search:
+        placeholder: Search by name or comment

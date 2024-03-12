@@ -123,6 +123,7 @@ CREATE TABLE public.movies (
     name character varying NOT NULL,
     description text NOT NULL,
     year integer NOT NULL,
+    rating numeric DEFAULT 0.0 NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 );
@@ -145,6 +146,40 @@ CREATE SEQUENCE public.movies_id_seq
 --
 
 ALTER SEQUENCE public.movies_id_seq OWNED BY public.movies.id;
+
+
+--
+-- Name: reviews; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.reviews (
+    id bigint NOT NULL,
+    movie_id bigint NOT NULL,
+    "user" public.citext NOT NULL,
+    rating numeric,
+    comment text,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: reviews_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.reviews_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: reviews_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.reviews_id_seq OWNED BY public.reviews.id;
 
 
 --
@@ -475,6 +510,13 @@ ALTER TABLE ONLY public.movies ALTER COLUMN id SET DEFAULT nextval('public.movie
 
 
 --
+-- Name: reviews id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reviews ALTER COLUMN id SET DEFAULT nextval('public.reviews_id_seq'::regclass);
+
+
+--
 -- Name: solid_queue_blocked_executions id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -570,6 +612,14 @@ ALTER TABLE ONLY public.movies
 
 
 --
+-- Name: reviews reviews_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reviews
+    ADD CONSTRAINT reviews_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -654,6 +704,13 @@ ALTER TABLE ONLY public.solid_queue_semaphores
 --
 
 CREATE UNIQUE INDEX index_actors_movies ON public.actors_movies USING btree (movie_id, actor_id);
+
+
+--
+-- Name: index_reviews_on_movie_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_reviews_on_movie_id ON public.reviews USING btree (movie_id);
 
 
 --
@@ -827,6 +884,14 @@ ALTER TABLE ONLY public.solid_queue_blocked_executions
 
 
 --
+-- Name: reviews fk_rails_6ad75a4852; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.reviews
+    ADD CONSTRAINT fk_rails_6ad75a4852 FOREIGN KEY (movie_id) REFERENCES public.movies(id);
+
+
+--
 -- Name: solid_queue_ready_executions fk_rails_81fcbd66af; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -857,6 +922,7 @@ ALTER TABLE ONLY public.solid_queue_scheduled_executions
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240312165505'),
 ('20240312153045'),
 ('20240312152508'),
 ('20240312152503'),

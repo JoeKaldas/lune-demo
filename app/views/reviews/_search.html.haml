@@ -1,0 +1,9 @@
+.form-row
+  .col-12.col-sm-6.col-md-4.col-lg-2
+    .form-group
+      %label= Movie.model_name.human
+      = select_tag "q[movie_id_eq]",
+        options_from_collection_for_select(Movie.all.order(:name), :id, :name, params.dig(:q, :movie_id_eq)),
+        include_blank: I18n.t("forms.select.blank.any"),
+        class: "form-control remote-input",
+        data: { search_target: "input" }
