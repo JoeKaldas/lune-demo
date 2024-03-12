@@ -1,0 +1,129 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+  Exclude:
+    - 'node_modules/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'config/**/*'
+    - 'Guardfile'
+  TargetRubyVersion: 3.1.3
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 25 # default 15
+
+Metrics/ClassLength:
+  Max: 200
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Gemfile'
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - 'config/**/*.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+
+Layout/LineLength:
+  Max: 180
+
+Layout/ClassStructure:
+  Enabled: true
+
+Lint/MissingSuper:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 30
+
+Naming/FileName:
+  Exclude:
+    - 'config/initializers/rswag-api.rb'
+    - 'config/initializers/rswag-ui.rb'
+
+Style/FetchEnvVar:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+Style/RegexpLiteral:
+  AllowInnerSlashes: true
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+  
+Rails:
+  Enabled: true
+
+Rails/ActionOrder:
+  Enabled: false
+
+Rails/ActionControllerFlashBeforeRender:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+Rails/UnknownEnv:
+  Enabled: false
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+HttpPositionalArguments:
+  Enabled: false
+
+HasAndBelongsToMany:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Naming/VariableNumber:
+  Enabled: false

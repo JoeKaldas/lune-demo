@@ -47,9 +47,32 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem "sassc-rails" # Use Sass to process CSS
+
+gem "dry-initializer"
+gem "dry-struct"
+gem "dry-validation"
+gem "hamlit"
+gem "pagy", "~> 6.1" # portal views pagination
+gem "rack-attack" # block or throttle abusive requests
+gem "rack-cors"
+gem "rack-protection" # protect against typical web attacks
+gem "ransack", "~> 3.2.1" # active record search
+gem "reform"
+gem "reform-rails"
+gem "simple_form"
+gem "solid_queue"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+  gem "factory_bot_rails"
+  gem "ffaker"
+
+  gem "rubocop"
+  gem "rubocop-rails"
+  gem "rubocop-performance"
+  gem "guard-rspec"
 end
 
 group :development do
