@@ -25,7 +25,7 @@
 # The :params can be also set as a lambda e.g ->(params){ params.exclude('useless').merge!('custom' => 'useful') }
 # Pagy::DEFAULT[:params]     = {}                              # default
 # Pagy::DEFAULT[:fragment]   = '#fragment'                     # example
-Pagy::DEFAULT[:link_extra] = 'data-turbo-action="advance"'     # example
+Pagy::DEFAULT[:link_extra] = 'data-turbo="false"'              # example
 # Pagy::DEFAULT[:i18n_key]   = 'pagy.item_name'                # default
 # Pagy::DEFAULT[:cycle]      = true                            # example
 # Pagy::DEFAULT[:request_path] = "/foo"                        # example
