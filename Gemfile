@@ -58,6 +58,7 @@ gem "rack-attack" # block or throttle abusive requests
 gem "rack-cors"
 gem "rack-protection" # protect against typical web attacks
 gem "ransack", "~> 3.2.1" # active record search
+gem "redcarpet" # markdown processing
 gem "reform"
 gem "reform-rails"
 gem "simple_form"
