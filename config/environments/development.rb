@@ -11,6 +11,8 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  config.active_job.queue_adapter = :solid_queue
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
@@ -39,7 +41,12 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
+  # config.action_mailer.delivery_method = :letter_opener_web
+
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
+
+  config.action_mailer.show_previews = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -59,11 +66,16 @@ Rails.application.configure do
   # Highlight code that enqueued background job in logs.
   config.active_job.verbose_enqueue_logs = true
 
+  # Debug mode disables concatenation and preprocessing of assets.
+  # This option may cause significant delays in view rendering with a large
+  # number of complex assets.
+  config.assets.debug = false
+
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
   # Raises error for missing translations.
-  # config.i18n.raise_on_missing_translations = true
+  config.i18n.raise_on_missing_translations = true
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
