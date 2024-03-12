@@ -123,6 +123,7 @@ CREATE TABLE public.movies (
     name character varying NOT NULL,
     description text NOT NULL,
     year integer NOT NULL,
+    director character varying NOT NULL,
     rating numeric DEFAULT 0.0 NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL

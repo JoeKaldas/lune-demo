@@ -7,6 +7,8 @@
     = file_field_tag 'file', required: true, accept: Movie::FILE_TYPES.join(",")
     = submit_tag(t("misc.import"), class: "btn btn-primary")
 
+= turbo_stream_from "movies-list"
+
 = content_for(:empty) do
   = render "empty"
 

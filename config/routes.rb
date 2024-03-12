@@ -14,5 +14,9 @@ Rails.application.routes.draw do
       post :import
     end
   end
-  resources :reviews, only: [:index]
+  resources :reviews, only: [:index] do
+    collection do
+      post :import
+    end
+  end
 end

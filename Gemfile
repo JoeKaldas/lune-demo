@@ -61,6 +61,7 @@ gem "ransack", "~> 3.2.1" # active record search
 gem "redcarpet" # markdown processing
 gem "reform"
 gem "reform-rails"
+gem "roo", "~> 2.10.0"
 gem "simple_form"
 gem "solid_queue"
 

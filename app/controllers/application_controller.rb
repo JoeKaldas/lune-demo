@@ -6,19 +6,6 @@ class ApplicationController < ActionController::Base
   end
   helper_method :turbo_stream_flash_messages
 
-  def redirect_to(url, options = {})
-    respond_to do |format|
-      # HTML explicitly first, so that JS is not the first - that would cause a whole
-      # lotta InvalidCrossOrigin errors when called with "Accept: */*"
-      format.html { super }
-      format.turbo_stream { super }
-      format.js { render js: "window.location.href = '#{url}'" }
-
-      # Catch-all
-      format.any { super }
-    end
-  end
-
   private
 
   def turbo_frame_request_variant

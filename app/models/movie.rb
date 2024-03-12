@@ -7,12 +7,12 @@ class Movie < ApplicationRecord
     text/csv
   ].freeze
 
-  normalizes :name, with: ->(name) { name.strip }
+  normalizes :name, :director, with: ->(name) { name.strip }
   normalizes :description, with: -> { _1.presence || "" }, apply_to_nil: true
 
   has_many :reviews, dependent: :destroy
 
   has_and_belongs_to_many :actors
 
-  ransack_alias :any, :name
+  ransack_alias :any, :name_or_actors_full_name
 end

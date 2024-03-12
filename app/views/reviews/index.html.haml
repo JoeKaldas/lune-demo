@@ -2,6 +2,13 @@
   .d-flex.justify-content-between.w-100
     %h2= Review.model_name.human(count: 2)
 
+.mb-4
+  = form_tag(import_reviews_path, id: "import-form", multipart: true) do
+    = file_field_tag 'file', required: true, accept: Review::FILE_TYPES.join(",")
+    = submit_tag(t("misc.import"), class: "btn btn-primary")
+
+= turbo_stream_from "reviews-list"
+
 = content_for(:empty) do
   = render "empty"
 
