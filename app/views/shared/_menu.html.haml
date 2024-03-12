@@ -1,0 +1,12 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light#main-nav
+  %button.navbar-toggler.me-2.d-lg-none{ data: { bs_toggle: "collapse", bs_target: "#nav-menu" } }
+    %span.navbar-toggler-icon
+
+  .collapse.navbar-collapse.order-2.order-lg-1#nav-menu
+    .navbar-nav.mx-auto#main-menu
+      .nav-item{ id: "nav-item-movies" }
+        %a.nav-link.main{ href: movies_path }
+          Movies
+      .nav-item{ id: "nav-item-actors" }
+        %a.nav-link.main{ href: actors_path }
+          Actors

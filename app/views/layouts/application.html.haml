@@ -5,6 +5,9 @@
     = yield :head
 
   %body.movies-portal
+    %header
+      = render "shared/menu"
+
     = render "shared/flash"
     = render "shared/remote_modal"
 

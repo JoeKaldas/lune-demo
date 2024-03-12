@@ -1,7 +1,6 @@
 :ruby
   placeholder ||= "Search..."
   filtered = @filter&.ransack_keys&.present?
-  columns ||= @full_width
   columns = true
 
 = form_with(url:,

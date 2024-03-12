@@ -5,6 +5,8 @@ class Actor < ApplicationRecord
 
   has_and_belongs_to_many :movies
 
+  ransack_alias :any, :full_name
+
   private
 
   def sync_full_name

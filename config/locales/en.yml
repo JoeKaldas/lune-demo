@@ -133,6 +133,16 @@ en:
       with_day_abbr: "%H:%M, %a %d/%m/%y"
       filename: "%d-%m-%y-%H-%M"
       iso: "%d-%m-%Y %H:%M"
+  actors:
+    empty:
+      heading: You don't have any actors yet.
+      body: |
+        Once you've added a actor, it will show up here.
+
+        You can add actors by importing movies.
+    index:
+      search:
+        placeholder: Search by name
   movies:
     empty:
       heading: You don't have any movies yet.
