@@ -11,7 +11,14 @@ class MoviesController < ApplicationController
     data = []
     (2..spreadsheet.last_row).each do |i|
       movie, description, year, director, actor, city, country = spreadsheet.row(i).values_at(0..6)
-      data.push({ movie:, description:, year:, director:, actor:, city:, country: })
+      movie_data = { movie:, description:, year:, director:, actor:, city:, country: }
+
+      if movie_data.values.any?(&:nil?)
+        flash[:alert] = "Your sheet contains invalid data"
+        return redirect_to movies_path
+      end
+
+      data.push(movie_data)
     end
     Import::MovieJob.perform_later(data)
 

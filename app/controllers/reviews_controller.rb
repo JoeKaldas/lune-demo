@@ -11,7 +11,14 @@ class ReviewsController < ApplicationController
     data = []
     (2..spreadsheet.last_row).each do |i|
       movie, user, rating, comment = spreadsheet.row(i).values_at(0..4)
-      data.push({ movie:, user:, rating:, comment: })
+      review_data = { movie:, user:, rating:, comment: }
+
+      if review_data.values.any?(&:nil?)
+        flash[:alert] = "Your sheet contains invalid data"
+        return redirect_to movies_path
+      end
+
+      data.push(review_data)
     end
     Import::ReviewJob.perform_later(data)
 
