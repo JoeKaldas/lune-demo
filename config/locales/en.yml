@@ -143,6 +143,16 @@ en:
     index:
       search:
         placeholder: Search by name
+  locations:
+    empty:
+      heading: You don't have any locations yet.
+      body: |
+        Once you've added a location, it will show up here.
+
+        You can add locations by importing movies.
+    index:
+      search:
+        placeholder: Search by city or country
   movies:
     empty:
       heading: You don't have any movies yet.

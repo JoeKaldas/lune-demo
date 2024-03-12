@@ -1,0 +1,17 @@
+= content_for(:page_header) do
+  .d-flex.justify-content-between.w-100
+    %h2= Location.model_name.human(count: 2)
+
+= content_for(:empty) do
+  = render "empty"
+
+= content_for(:sort) do
+  = sort_menu_from_filter(@filter)
+
+= content_for(:search) do
+  = render "shared/search",
+    url: locations_path,
+    placeholder: t(".search.placeholder"),
+    records: @locations
+
+= render "shared/records", records: @locations, total: @total

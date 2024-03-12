@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root "movies#index"
 
   resources :actors, only: [:index]
+  resources :locations, only: [:index]
   resources :movies, only: [:index] do
     collection do
       post :import
