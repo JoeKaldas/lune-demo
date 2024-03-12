@@ -10,8 +10,8 @@ class MoviesController < ApplicationController
     spreadsheet = ::Roo::Spreadsheet.open(params[:file].path)
     data = []
     (2..spreadsheet.last_row).each do |i|
-      movie, description, year, director, actor, location, country = spreadsheet.row(i).values_at(0..6)
-      data.push({ movie:, description:, year:, director:, actor:, location:, country: })
+      movie, description, year, director, actor, city, country = spreadsheet.row(i).values_at(0..6)
+      data.push({ movie:, description:, year:, director:, actor:, city:, country: })
     end
     Import::MovieJob.perform_later(data)
 

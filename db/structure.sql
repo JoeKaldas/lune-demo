@@ -113,6 +113,16 @@ ALTER SEQUENCE public.locations_id_seq OWNED BY public.locations.id;
 
 
 --
+-- Name: locations_movies; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.locations_movies (
+    location_id bigint NOT NULL,
+    movie_id bigint NOT NULL
+);
+
+
+--
 -- Name: movies; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -706,6 +716,13 @@ CREATE UNIQUE INDEX index_actors_movies ON public.actors_movies USING btree (mov
 
 
 --
+-- Name: index_locations_movies; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_locations_movies ON public.locations_movies USING btree (movie_id, location_id);
+
+
+--
 -- Name: index_reviews_on_movie_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -921,6 +938,7 @@ ALTER TABLE ONLY public.solid_queue_scheduled_executions
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240312180428'),
 ('20240312165505'),
 ('20240312153045'),
 ('20240312152508'),

@@ -13,6 +13,7 @@ class Movie < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   has_and_belongs_to_many :actors
+  has_and_belongs_to_many :locations
 
   ransack_alias :any, :name_or_actors_name
 end
