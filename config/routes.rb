@@ -9,13 +9,9 @@ Rails.application.routes.draw do
   root "movies#index"
 
   resources :actors, only: [:index]
-  resources :movies, only: [:index]
-
-  namespace :import do
-    resource :movie, except: %i[index edit] do
-      collection do
-        get :template
-      end
+  resources :movies, only: [:index] do
+    collection do
+      post :import
     end
   end
 end

@@ -1,8 +1,11 @@
 = content_for(:page_header) do
   .d-flex.justify-content-between.w-100
     %h2= Movie.model_name.human(count: 2)
-    .actions#actions
-      = upload_button new_import_movie_path, key: "misc.import"
+
+.mb-4
+  = form_tag(import_movies_path, id: "import-form", multipart: true) do
+    = file_field_tag 'file', required: true, accept: Movie::FILE_TYPES.join(",")
+    = submit_tag(t("misc.import"), class: "btn btn-primary")
 
 = content_for(:empty) do
   = render "empty"

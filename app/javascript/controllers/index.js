@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import SearchController from "./search_controller"
 application.register("search", SearchController)
+
+import ReloadController from "./reload_controller"
+application.register("reload", ReloadController)

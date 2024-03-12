@@ -6,6 +6,10 @@ class MoviesController < ApplicationController
     @pagy, @movies = pagy(filter.result, items: 10)
   end
 
+  def import
+    
+  end
+
   private
 
   def scope

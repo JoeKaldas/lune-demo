@@ -33,18 +33,15 @@ en:
   misc:
     clear: Clear
     clear_filter: Clear filter
-    confirm: Are you sure?
-    export:
-      xls: Export to Excel
-      csv: Export as CSV
-    form_errors: "**Sorry!** That didn't quite work. Please review the error messages below."
     import: Import
     loading: Loading...
     never_mind: No, never mind
+    "no": "No"
     no_results: No matching records found
     one_moment: One moment please...
     search: Search
     upload: Upload
+    "yes": "Yes"
   shared:
     search:
       reset: Clear all filters

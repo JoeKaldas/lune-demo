@@ -4,6 +4,8 @@ import * as bootstrap from "bootstrap";
 window.bootstrap = bootstrap;
 import "./controllers";
 
+Turbo.session.drive = false;
+
 Turbo.setConfirmMethod((message, element) => {
   let modalElement = document.getElementById("turbo-confirm");
   modalElement.querySelector("h2").textContent = message;
