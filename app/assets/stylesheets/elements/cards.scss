@@ -1,0 +1,46 @@
+$color-card-highlight: #fffae8;
+$color-card-danger: #fff0e7;
+
+.card {
+  border: none;
+
+  &.card-colored .card-body {
+    border-left: 8px solid white;
+  }
+
+  &.card-outline {
+    border-color: $gray-500;
+  }
+
+  &.card-highlight {
+    background-color: $color-card-highlight;
+  }
+
+  &.card-danger {
+    background-color: $color-card-danger;
+  }
+
+  &.updated {
+    background-color: hsl(53deg, 100%, 92%);
+    animation: fadeout 1s linear 2s 1 forwards;
+  }
+
+  &.card-outline {
+    border: 1px solid $ui-color-input-border;
+  }
+}
+
+.card,
+.card-body {
+  border-radius: $border-radius;
+}
+
+@keyframes fadeout {
+  from {
+    background-color: hsl(53deg, 100%, 92%);
+  }
+
+  to {
+    background-color: white;
+  }
+}

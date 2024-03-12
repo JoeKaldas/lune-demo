@@ -1,0 +1,69 @@
+button,
+.btn {
+  font-weight: bold;
+
+  &:disabled {
+    opacity: 0.25 !important;
+  }
+}
+
+.btn-xs {
+  padding: 5px 10px !important;
+  font-size: 11px;
+  line-height: 11px;
+  text-transform: uppercase;
+}
+
+.btn--narrow {
+  @extend .btn;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+}
+
+.btn-group {
+  .btn-primary.dropdown-toggle-split {
+    border-left: 1px solid #5d96c7;
+  }
+}
+
+$secondary-color: $gray-200;
+$outline-color: $gray-500;
+$outline-color-background: #f9f9f9;
+
+.btn-outline,
+a.btn-outline {
+  background-color: $outline-color-background;
+  @include button-outline-variant(
+    $outline-color,
+    black,
+    $secondary-color,
+    black
+  );
+  color: $gray-700;
+}
+
+.btn-secondary,
+a.btn-secondary {
+  @include button-variant(
+    $secondary-color,
+    $secondary-color,
+    darken($secondary-color, 10%),
+    darken($secondary-color, 10%),
+    darken($secondary-color, 15%),
+    darken($secondary-color, 15%)
+  );
+  color: $gray-700 !important;
+}
+
+.page-header {
+  .btn-secondary,
+  a.btn-secondary {
+    color: $info !important;
+  }
+}
+
+.btn--delete {
+  @extend .btn--narrow;
+  @extend .btn-secondary;
+  color: $gray-700;
+}

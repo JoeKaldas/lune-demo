@@ -1,0 +1,188 @@
+.form-row {
+  @extend .row;
+  @extend .gx-1;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+/* We want bold labels for input fields.
+  WARNING: for some obscure reason, adding :not(.btn) to this BREAKS the whole rule. 
+  So dont' do that (or figure out why first)! */
+label:not(.boolean):not(.collection_radio_buttons):not(.collection_check_boxes):not(.file-upload) {
+  font-weight: bold;
+  color: $ui-primary-900;
+  opacity: 0.8;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  text-transform: uppercase;
+  margin-bottom: 3px !important;
+}
+
+.remote-input {
+  display: block;
+  position: relative;
+
+  &:after {
+    font-family: $font-awesome-font;
+    font-weight: $font-awesome-solid;
+    color: $gray-600;
+    font-size: 1.2em;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  &.search {
+    &:after {
+      content: "\f002";
+    }
+  }
+
+  &.active {
+    &:after {
+      content: "\f110";
+      -webkit-animation: fa-spin 2s infinite linear;
+      animation: fa-spin 2s infinite linear;
+    }
+  }
+}
+
+.checkboxes .form-group {
+  margin-bottom: 0 !important;
+}
+
+div,
+input,
+select,
+textarea,
+tags-no-dropdowm.tagify,
+tags.tagify {
+
+  &.form-control,
+  &.form-control-lg {
+    &:not(.is-invalid) {
+      border-color: $ui-color-input-border !important;
+    }
+  }
+
+  &.form-control:not(:disabled) {
+    background-color: white !important;
+  }
+}
+
+tags.tagify {
+  height: auto !important;
+}
+
+textarea {
+  min-height: 4rem;
+}
+
+input[type="file"] {
+  max-width: 100%;
+}
+
+.input-group {
+  .input-group-text {
+    border-color: $ui-color-input-border !important;
+  }
+}
+
+form {
+  .form-group.hidden {
+    margin-bottom: 0 !important;
+  }
+
+  .form-control.is-invalid {
+    border-color: $danger !important;
+  }
+
+  .invalid-feedback {
+    display: block !important;
+    font-size: 100% !important;
+    color: $danger;
+  }
+
+  // Since we're increasing the checkbox size, we need to increase the label height
+  // proportionally. This seems to be an oversight in BS5.
+  .form-check-label {
+    line-height: $form-check-input-width;
+  }
+
+  .form-check {
+    margin-bottom: 0.5rem;
+  }
+
+  abbr {
+    text-decoration: none !important;
+  }
+
+  .form-control-file {
+    display: block;
+  }
+
+  // Collapse legends - we don't use them ever, and they mess with vertically
+  // stacked radio buttons and checkboxes.
+  fieldset.check_boxes,
+  fieldset.radio_buttons {
+    legend {
+      display: none;
+    }
+  }
+}
+
+label .field_with_errors {
+  display: inline-block;
+}
+
+.char-count {
+  font-size: 0.8rem;
+}
+
+/* Hide number input spinners across browsers. From
+ * https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  /* Firefox */
+  appearance: textfield;
+}
+
+.image-thumbnail,
+.image-preview {
+  max-height: 134px;
+  max-width: 100%;
+}
+
+.form-actions {
+  @extend .d-flex;
+  @extend .justify-content-between;
+  @extend .align-items-center;
+  border-top: 1px solid $ui-color-divider;
+  padding-top: 15px;
+}
+
+select.select-narrow {
+  padding: 0.5rem 0.4rem;
+}
+
+.form-group.password-group {
+  position: relative;
+
+  a {
+    position: absolute;
+    right: 11px;
+    top: 29px;
+    padding: 5px;
+    color: $ui-gray-400 !important;
+  }
+}

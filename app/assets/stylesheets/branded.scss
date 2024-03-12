@@ -1,0 +1,79 @@
+.branded {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: Poppins, Catamaran, sans-serif;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  a:not(.btn):not(.nav-link) {
+    text-decoration: underline;
+    color: $luneprimary;
+  }
+
+  .narrow {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.session .card {
+    @extend .shadow;
+    border-radius: 7px;
+    overflow: hidden; // prevent coloured background from poking out of rounded corners
+
+    .card-body {
+      @extend .p-4;
+      @extend .p-sm-5;
+    }
+  }
+
+  .btn {
+    text-transform: none;
+    font-weight: normal;
+    border-radius: 20px;
+    display: inline-block !important;
+    padding: 0.5rem 1.5rem !important;
+  }
+
+  .accented {
+    color: $luneaccent;
+  }
+
+  .text-primary {
+    color: $luneprimary !important;
+  }
+
+  .text-danger {
+    color: $luneaccent !important;
+  }
+
+  .btn-danger,
+  .btn-primary {
+    @include button-variant($luneaccent, $luneaccent);
+    color: white;
+  }
+
+  .light-on-dark {
+    background-color: $luneprimary;
+    color: white;
+
+    .btn-danger,
+    .bnt-primary {
+      @include button-variant(white, white);
+      color: $luneaccent;
+    }
+  }
+
+  .form-control {
+    border-radius: 10px !important;
+    height: calc(1.5em + 1.4rem + 2px);
+  }
+}

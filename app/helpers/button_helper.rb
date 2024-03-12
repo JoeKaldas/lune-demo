@@ -50,31 +50,31 @@ module ButtonHelper
 
   def download_xls_button(text = I18n.t("misc.export.xls"), url: { format: :xlsx })
     link_to(url, class: "btn btn-outline nowrap", data: { turbo: false }) do
-      icon_tag(:spreadsheet) + " #{text}"
+      text
     end
   end
 
   def download_link(text = I18n.t("misc.download"), url:)
     link_to(url, data: { turbo: false }, class: "btn sm btn-outline") do
-      safe_join([icon_tag(:download), text], " ")
+      text
     end
   end
 
   def upload_button(url, key: "misc.upload")
     link_to(url, class: "btn btn-outline") do
-      icon_tag(:upload) + " #{I18n.t(key)}"
+      I18n.t(key)
     end
   end
 
   def add_button(url, text: I18n.t("buttons.add"))
     link_to(url, class: "btn btn btn-outline nowrap") do
-      tag.i("", class: "fas fa-plus") + " #{text}"
+      text
     end
   end
 
   def edit_button(url, key: "buttons.edit", turbo_frame: nil)
     link_to(url, class: "btn btn-secondary btn-sm", data: { turbo_frame: }) do
-      icon_tag("edit") + " #{I18n.t(key)}"
+      I18n.t(key)
     end
   end
 
@@ -83,7 +83,7 @@ module ButtonHelper
   end
 
   def delete_modal_button(target, classes: "ms-2", message: "Are you sure?")
-    text = icon_tag("delete") + " #{I18n.t('misc.delete')}"
+    text = I18n.t("misc.delete")
     button_to(text, target, class: "btn btn-sm btn-secondary #{classes}", method: :delete, form: { class: "d-inline-block", data: { turbo_confirm: message } })
   end
 

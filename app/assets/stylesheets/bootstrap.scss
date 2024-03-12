@@ -1,0 +1,83 @@
+$font-size: 14px;
+$font-family-sans-serif: "Roboto", sans-serif;
+$headings-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-font-weight: bold;
+$headings-color: $ui-primary-800;
+$border-radius: 3px;
+$border-radius-sm: 3px;
+$border-radius-lg: 4px;
+
+$input-border-color: $ui-color-input-border;
+$input-placeholder-color: $ui-gray-400;
+
+// disable validation colors
+$enable-validation-icons: false;
+$form-feedback-valid-color: $input-border-color;
+$form-feedback-invalid-color: $input-border-color;
+
+// slighly more padding on buttons and inputs
+$input-btn-padding-y: 0.5rem;
+$input-btn-padding-x: 1rem;
+
+// slightly *less* padding on small buttons
+$input-btn-padding-y-sm: 0.1rem;
+$input-btn-padding-x-sm: 0.5rem;
+
+// adjust card padding
+$card-spacer-x: 0.75rem;
+
+// subtler shadows
+$box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.065);
+$box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.09);
+$box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.125);
+$form-check-input-width: 1.5em;
+
+
+/* bootstrap 5 */
+
+// don't use the ridiculously light grey for invalid fields
+$form-invalid-color: inherit;
+
+$form-check-input-border: 1px solid $input-border-color;
+$form-check-input-checked-color: $luneaccent;
+$form-check-input-checked-bg-color: white;
+$form-check-input-checked-border-color: $input-border-color;
+
+
+@import "bootstrap/scss/bootstrap";
+
+// disable default collapse animation
+.collapsing {
+  transition: none !important;
+}
+
+// bootstrap 4 shims
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// bootstrap 5 select without modifying simple-form
+select.form-control {
+  @extend .form-select;
+}
+
+// undo bootstrap 5 tiny container margins
+.container,
+.container-fluid {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+header .navbar {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+// Not sure why, but BS5 uses black for success button for some reason.
+.btn-success,
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active {
+  color: white;
+}

@@ -1,0 +1,81 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  color: $headings-color !important;
+
+  small {
+    @extend .text-muted;
+    @extend .ms-1;
+  }
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h4 {
+  font-size: 14px;
+}
+
+.text-accent {
+  color: $luneaccent;
+}
+
+.label {
+  @extend .text-muted;
+  margin-bottom: 1px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+}
+
+a.inline {
+  color: $body-color;
+  text-decoration: underline;
+}
+
+.text-muted a.inline {
+  color: inherit !important;
+}
+
+.text-light {
+  color: $ui-gray-300 !important;
+}
+
+.hint {
+  @extend .text-muted;
+  font-size: 0.9rem;
+}
+
+ul {
+  margin: 0;
+
+  li {
+    @extend .py-1;
+  }
+}
+
+blockquote {
+  border-left: 5px solid $green;
+  padding-left: 10px;
+  font-style: italic;
+}
+
+.paragraphs {
+  white-space: pre-line;
+}
+
+.text-luneaccent {
+  color: $luneaccent !important;
+}

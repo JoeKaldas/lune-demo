@@ -1,0 +1,8 @@
+.popover {
+
+  // We don't want the normal paragraph or list margins at the bottom of a popover, it
+  // looks unbalanced.
+  *:last-child {
+    margin-bottom: 0 !important;
+  }
+}

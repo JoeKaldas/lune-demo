@@ -1,0 +1,30 @@
+.alerts .alert {
+  text-align: center;
+}
+
+.alert {
+  border-radius: $border-radius !important;
+  margin-bottom: 0;
+
+  &.alert-success {
+
+    h2,
+    h3 {
+      color: #0c4502 !important;
+    }
+  }
+
+  p:first-child {
+    margin-top: 0 !important;
+  }
+
+  p:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  &.alert-dismissible .btn-close {
+    padding: 0.6rem 1rem !important;
+    bottom: 0;
+    margin: auto;
+  }
+}

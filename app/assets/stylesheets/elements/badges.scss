@@ -1,0 +1,58 @@
+.badge {
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 6px 12px;
+  line-height: 11px;
+  font-size: 11px;
+
+  &.badge-pill {
+    padding: 4px 6px !important;
+  }
+
+  &.badge-light {
+    @extend .bg-light;
+
+  }
+  &.badge-success {
+    color: #0c4502 !important;
+    background-color: #c3ecab !important;
+  }
+
+  &.badge-warning {
+    background-color: hsl(45deg, 100%, 86%) !important;
+    color: hsl(39deg, 100%, 25%) !important;
+  }
+
+  &.badge-primary {
+    background-color: $ui-primary-200 !important;
+    color: $ui-primary-900 !important;
+  }
+
+  &.badge-secondary {
+    background-color: $ui-gray-200 !important;
+    color: $ui-gray-900 !important;
+  }
+
+  &.badge-danger {
+    background-color: $ui-accent-200;
+    color: $ui-accent-900;
+  }
+
+  &.badge-accent {
+    background-color: $luneaccent;
+    color: white;
+  }
+
+  &.badge-white {
+    background-color: white;
+    color: $body-color;
+  }
+
+  &.badge-outline {
+    border: 1px solid $gray-500;
+  }
+
+  // &.status-confirmed {
+  //   @extend .badge-success;
+  // }
+}

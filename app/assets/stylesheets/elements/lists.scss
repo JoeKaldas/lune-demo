@@ -1,0 +1,48 @@
+.listing {
+  .card {
+    @extend .shadow;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 6px;
+
+    .card-body {
+      padding: 8px 0.75rem !important;
+    }
+
+    // on small screens, we reclaim a bit of space by making 
+    // cards in lists flush with the edge of the screen - the double
+    // padding is a waste here.
+    @include media-breakpoint-down(md) {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+
+  .icons {
+    i {
+      width: 20px;
+      text-align: center;
+    }
+  }
+
+  .dropdown {
+    button {
+      height: 100%;
+    }
+
+    &.sort-dropdown {
+      a, li {
+        color: $body-color;
+      }
+    }
+  }
+}
+
+ul,
+ol {
+  padding-left: 1.1rem;
+
+  li {
+    padding-bottom: 0.25rem;
+  }
+}

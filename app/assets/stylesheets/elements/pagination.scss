@@ -1,0 +1,49 @@
+nav.pagination {
+  display: block !important;
+
+  .page,
+  .next,
+  .last,
+  .first,
+  .prev {
+    display: inline-block;
+    min-width: 2em;
+    border: 1px solid #ccc;
+    text-align: center;
+    margin-right: 2px;
+    margin-bottom: 4px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .page,
+  .next,
+  .last,
+  .first,
+  .prev {
+
+    &.current,
+    a,
+    &.gap {
+      padding: 4px 6px;
+      display: inline-block;
+    }
+
+    &.current {
+      color: white;
+      background-color: $info;
+    }
+  }
+
+  span {
+    border-radius: 5px;
+    background-color: white;
+    border-color: $ui-gray-100;
+  }
+
+  .page.current {
+    background-color: $luneaccent !important;
+  }
+}

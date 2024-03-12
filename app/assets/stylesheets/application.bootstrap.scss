@@ -1,2 +1,309 @@
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
+// Local files
+@import "variables";
+@import "bootstrap";
+@import "branded";
+@import "elements/all";
+@import "components/all";
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+html,
+body {
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+body {
+  background-color: $ui-color-background;
+  margin-bottom: 100px;
+  overflow-y: scroll;
+
+  &.error .logo img {
+    width: 160px;
+  }
+
+  &.session {
+    background-color: $gray-100;
+
+    .card {
+      .card-body {
+        h2 {
+          @extend .mb-3;
+          @extend .mb-md-4;
+          font-size: 1.4rem !important;
+        }
+
+        &.light-on-dark {
+          h2 {
+            color: white !important;
+          }
+        }
+      }
+    }
+
+    .logo {
+      @extend .text-center;
+      @extend .my-4;
+      @extend .mt-md-5;
+
+      img {
+        width: 200px;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $ui-color-background !important;
+
+  a {
+    color: $body-color;
+    text-decoration: underline;
+  }
+
+  &.sticky {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #f6f6f6;
+  }
+}
+
+textarea {
+  max-height: 300px;
+}
+
+.translation_missing {
+  background-color: yellow !important;
+  color: red !important;
+}
+
+#main {
+  margin-bottom: 3em !important;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 5em !important;
+  }
+}
+
+#content {
+  padding-top: 15px;
+  padding-bottom: 100px;
+
+  &.fixed {
+    max-width: 1024px;
+  }
+}
+
+.sections {
+  section {
+    padding-bottom: 0.5em;
+    margin-bottom: 1.5em;
+
+    &.last {
+      border-bottom: none;
+    }
+
+    h2,
+    h3,
+    h4 {
+      @extend .mb-3;
+      border-bottom: 1px solid $ui-color-divider;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.breakword {
+  word-break: break-word;
+}
+
+.row-narrow {
+  @extend .row;
+  margin-right: -3px;
+  margin-left: -3px;
+
+  >.col,
+  >[class*="col-"] {
+    padding-right: 3px;
+    padding-left: 3px;
+  }
+}
+
+// Make a whole DOM node act like a link with valid HTML and
+// no JS.
+.clickable {
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .primary-link {
+    height: 100%;
+    left: 0;
+    position: absolute !important;
+    top: 0;
+    width: 100%;
+    z-index: 1 !important;
+  }
+
+  a,
+  button,
+  iframe,
+  [data-bs-toggle="tooltip"],
+  .drag-handle {
+    position: relative;
+    z-index: 100;
+  }
+
+  .form-check,
+  .form-check-input,
+  .form-check-label {
+    z-index: 100;
+  }
+}
+
+.drag-handle {
+  @extend .align-self-stretch;
+  display: block;
+  background-size: cover;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSIjODg4Ij48L3JlY3Q+Cjwvc3ZnPg==");
+  width: 20px;
+  cursor: grab;
+  cursor: -webkit-grab;
+  margin: 5px 2px;
+}
+
+@include media-breakpoint-up(xl) {
+  .breakout {
+    position: relative;
+
+    .move-right {
+      width: 50%;
+      padding-left: 20px;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .keep-left {
+      width: 50%;
+    }
+  }
+}
+
+.no-transition {
+  transition: none;
+}
+
+.toggler-link-placeholder {
+  min-height: $font-size * $line-height;
+}
+
+label.file-upload {
+  @extend .btn;
+  @extend .btn-outline;
+  margin-top: 1.3rem;
+
+  &.disabled {
+    background-color: #999;
+  }
+
+  input {
+    display: none;
+  }
+}
+
+.app-spinner {
+  @extend .spinner-border;
+  @extend .spinner-border-sm;
+  @extend .my-1;
+  @extend .me-1;
+}
+
+.toggler-link i.show {
+  width: 12px;
+}
+
+.banner {
+  &.banner-alert {
+    background-color: $danger;
+    color: white;
+
+    a,
+    a:active,
+    a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+  }
+
+  &.banner-info {
+    background-color: hsl(45deg, 100%, 86%) !important;
+    color: hsl(39deg, 100%, 25%) !important;
+
+    a,
+    a:active,
+    a:hover {
+      color: hsl(39deg, 100%, 25%) !important;
+      text-decoration: underline;
+    }
+  }
+
+  padding: 0.7rem 1rem;
+  text-align: center;
+}
+
+h3.anchor {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.mt-negative-sm {
+  margin-top: -5px;
+}
+
+// Make sure auto-complete dropdowns from awesomeplete are
+// always on top
+ul.listbox {
+  z-index: 999;
+}
+
+.pass-wrapper>.pass-text {
+  margin-top: 5px;
+  display: block;
+}
+
+.dropdown-menu {
+  @extend .shadow;
+
+  .dropdown-item {
+    padding: 0.4rem 1.5rem !important;
+  }
+}
+
+.text-danger {
+  color: $luneaccent;
+}
+
+.avatar {
+  img {
+    border: 1px solid #ccc;
+  }
+
+  &:not(.avatar-square) {
+    img {
+      border-radius: 50%;
+    }
+  }
+}

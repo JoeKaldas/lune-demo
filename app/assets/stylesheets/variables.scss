@@ -1,0 +1,59 @@
+$ui-color-background: #f9fbfb;
+
+$ui-primary-100: hsl(206, 99%, 93%);
+$ui-primary-200: hsl(207, 88%, 81%);
+$ui-primary-300: hsl(208, 77%, 67%);
+$ui-primary-400: hsl(209, 74%, 55%);
+$ui-primary-500: hsl(209, 92%, 43%);
+$ui-primary-600: hsl(209, 76%, 40%);
+$ui-primary-700: hsl(209, 72%, 30%);
+$ui-primary-800: hsl(208, 71%, 23%);
+$ui-primary-900: hsl(207, 65%, 15%);
+
+$ui-accent-100: hsl(324, 100%, 97%);
+$ui-accent-200: hsl(330, 90%, 92%);
+$ui-accent-300: hsl(341, 100%, 86%);
+$ui-accent-400: hsl(344, 86%, 70%);
+$ui-accent-500: hsl(342, 92%, 52%);
+$ui-accent-600: hsl(340, 89%, 49%);
+$ui-accent-700: hsl(339, 90%, 43%);
+$ui-accent-800: hsl(336, 92%, 36%);
+$ui-accent-900: hsl(347, 94%, 28%);
+
+$ui-gray-100: hsl(210, 40%, 96%);
+$ui-gray-200: hsl(214, 32%, 91%);
+$ui-gray-300: hsl(213, 27%, 84%);
+$ui-gray-400: hsl(215, 20%, 65%);
+$ui-gray-500: hsl(215, 16%, 47%);
+$ui-gray-700: hsl(215, 25%, 27%);
+$ui-gray-900: hsl(222, 47%, 11%);
+
+$ui-button-icon-opacity: 0.75;
+$ui-color-input-border: $ui-gray-300;
+$ui-color-divider: $ui-gray-300;
+
+$luneprimary: $ui-primary-500;
+$luneaccent: $ui-gray-900;
+
+// globals
+$font-awesome-font: "Font Awesome 6 Free";
+$font-awesome-solid: 900;
+
+$font-size: 15px;
+$line-height: 1.2;
+
+// bootstrap colour overrides. Even if we don't change some, we
+// redefine them all so we can include these variables in active admin
+// as well.
+$success: #28a745;
+$danger: #dc3545;
+$warning: #ffc107;
+$primary: $luneprimary;
+$error: $luneaccent;
+$info: $ui-primary-400;
+$text-muted: $ui-gray-500;
+
+$table-accent-bg: #fcfcfc;
+
+$body-color: #212529;
+$input-color: #212529;

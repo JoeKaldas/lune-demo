@@ -1,0 +1,352 @@
+$color-nav-background: #aaa;
+$color-main-menu-bottom-border: #ddd;
+$color-main-menu-accent: $primary;
+$color-main-menu-active: lighten($color-main-menu-accent, 55%);
+
+$sidenav-item-color: $gray-100;
+$sidenav-item-color-active: #ddd;
+$sidenav-item-color-hover: #f0f0f0;
+
+$nav-item-text-color: $gray-700;
+$nav-item-text-color-active: black;
+
+.nav {
+  .nav-link {
+    padding: 0px !important;
+
+    &.active {
+      font-weight: bold !important;
+      background-color: transparent;
+      border-color: transparent !important;
+      color: $body-color !important;
+    }
+  }
+}
+
+.nav.nav-tabs {
+  border-bottom: none !important;
+
+  .nav-link {
+    padding: 0 !important;
+    margin-right: 15px;
+    font-weight: normal;
+    font-size: 1.1em;
+
+    &:hover,
+    &:focus {
+      border-color: transparent !important;
+    }
+
+    .counter {
+      @extend .text-muted;
+      display: inline;
+      font-size: 0.8em;
+      font-weight: normal;
+
+      &::before {
+        content: "(";
+      }
+
+      &::after {
+        content: ")";
+      }
+    }
+  }
+}
+
+nav {
+  .brand {
+    color: $gray-700;
+  }
+}
+
+.truncate-fix {
+  min-width: 0;
+}
+
+nav.navbar#main-nav {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+
+  @include media-breakpoint-up(lg) {
+    border-bottom: 5px solid $color-main-menu-bottom-border;
+  }
+
+  .navbar-toggler {
+    font-size: 1rem !important;
+  }
+
+  .nav-item {
+    @extend .d-flex;
+    @extend .justify-content-between;
+    @extend .justify-content-md-start;
+
+    border-bottom: none !important;
+    margin-bottom: 0px !important;
+    padding: 5px;
+
+    .nav-link {
+      font-weight: bold;
+    }
+
+    &.active,
+    &:hover {
+      background-color: white !important;
+    }
+
+    &.active {
+      border-bottom: 3px solid $luneaccent !important;
+      margin-bottom: -3px !important;
+    }
+
+    &:hover,
+    &.active {
+      background-color: $color-main-menu-active;
+      border-color: $color-main-menu-accent;
+    }
+
+    .nav-link {
+      // a bit narrower than bootstrap's default
+      padding-left: 0.1rem;
+      padding-right: 0.1rem;
+      white-space: nowrap;
+
+      &.main {
+        padding-top: 10px;
+      }
+    }
+
+    .icon {
+      font-size: 16px;
+      margin-right: 2px;
+
+      // make sure on vertical alignment (mobile view) that
+      // all icons take up the same width so the tab text
+      // is cleanly left-aligned:
+      @include media-breakpoint-down(md) {
+        display: inline-block;
+        width: 20px;
+      }
+    }
+  }
+
+  .nav-item,
+  .dropdown-toggle {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .dropdown-item:active {
+    color: white !important;
+  }
+
+  #main-menu {
+    .nav-item {
+      margin-right: 5px;
+    }
+  }
+
+  .badge-danger {
+    background-color: $danger !important;
+    color: white !important;
+  }
+}
+
+ul.breadcrumbs {
+  list-style-type: none;
+  padding: 0;
+  padding-bottom: 10px;
+
+  li {
+    display: inline-block;
+
+    &:after {
+      font-family: $font-awesome-font;
+      font-weight: $font-awesome-solid;
+      color: $gray-400;
+      content: "\f105";
+      margin: 0 5px 0 8px;
+    }
+
+    &.active {
+      font-weight: bold;
+      color: $headings-color !important;
+    }
+
+    &:last-child {
+      &:after {
+        content: "";
+      }
+    }
+  }
+}
+
+#settings-nav,
+#aux-menu {
+  i {
+    margin-right: 4px;
+    min-width: 17px;
+  }
+}
+
+#aux-menu {
+  #profile-toggle {
+    .avatar img {
+      margin-top: -8px !important;
+      margin-bottom: -8px !important;
+    }
+  }
+
+  .nav-item {
+    color: $gray-700;
+
+    &.active a {
+      color: $primary;
+    }
+
+    a {
+      color: $gray-700;
+      text-decoration: none;
+    }
+
+    .nav-link {
+      padding: 7px 0 8px 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+ul#settings-nav {
+  @extend .nav;
+  @extend .flex-column;
+
+  .nav-item {
+    background-color: inherit !important;
+    font-size: 15px;
+    font-weight: normal;
+    padding-top: 7px !important;
+    padding-bottom: 7px !important;
+
+    &.active {
+      position: relative;
+      background-color: $sidenav-item-color-active;
+
+      i {
+        color: $luneaccent !important;
+      }
+
+      &::after {
+        border: none !important;
+      }
+
+      @include media-breakpoint-up(lg) {
+        &:after {
+          content: "";
+          position: absolute;
+          margin-top: -6px;
+          margin-left: -5px;
+          border-left: 12px solid transparent;
+          border-right: 12px solid transparent;
+          border-bottom: 12px solid $sidenav-item-color-active;
+          transform: rotate(90deg);
+          right: -17px;
+          top: 20px;
+        }
+      }
+    }
+
+    &:not(.active):not(:hover) a {
+      color: $body-color;
+
+      .icon {
+        color: $ui-gray-400;
+      }
+    }
+
+    a {
+      padding: 5px 10px 5px 0;
+    }
+
+    .nav-link {
+      white-space: nowrap;
+      overflow-x: hidden;
+
+      i {
+        color: $nav-item-text-color;
+      }
+    }
+
+    &:hover {
+      background-color: $sidenav-item-color-hover;
+    }
+  }
+}
+
+nav.navbar#main-nav,
+ul#settings-nav {
+  .nav-item {
+    a {
+      color: $nav-item-text-color;
+    }
+
+    &:hover,
+    &.active {
+
+      a,
+      .icon {
+        color: $color-main-menu-accent;
+      }
+    }
+
+    &.active .nav-link {
+      font-weight: bold;
+    }
+  }
+}
+
+body.customer,
+body.public {
+  .navbar-brand {
+    &.logo img {
+      height: 30px;
+    }
+
+    a {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: bold;
+      color: $headings-color !important;
+    }
+  }
+
+  .navbar {
+    .nav-link {
+      font-size: 16px;
+      color: $primary;
+    }
+  }
+
+  .nav-tabs {
+    border-bottom: none !important;
+
+    .nav-link {
+      padding: 0 !important;
+      margin-right: 15px;
+      font-weight: bold;
+      font-size: 18px;
+
+      &.active {
+        border-color: transparent !important;
+        color: $body-color !important;
+      }
+    }
+  }
+}
+
+body.admin-portal header nav {
+  background-color: white !important;
+  border-bottom: 3px solid $ui-gray-100 !important;
+  padding-top: 19px;
+}

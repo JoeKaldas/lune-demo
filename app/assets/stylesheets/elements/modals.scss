@@ -1,0 +1,73 @@
+// Confirm Delete dialog
+dialog {
+  width: 500px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .modal-content {
+    border-radius: 4px;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.175);
+  }
+}
+
+.modal, dialog {
+  .modal-header {
+    border-bottom: none !important;
+    // Some modals might not have a header, so we set header
+    // bottom margin to zero...
+    padding: 1rem 1rem 0 1rem;
+
+    h2,
+    h3,
+    h4 {
+      margin-bottom: 0 !important;
+    }
+
+    @include media-breakpoint-up(xl) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .modal-body {
+    // ...and ensure that the body has a top margin, always.
+    padding: 1rem;
+
+    @include media-breakpoint-up(xl) {
+      padding: 2rem;
+      padding-top: 1rem;
+    }
+
+    .modal-buttons {
+      @extend .mt-3;
+      @extend .mt-md-4;
+      @extend .d-flex;
+      @extend .justify-content-between;
+    }
+  }
+
+  .modal-dialog {
+    .btn-close {
+      float: right;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin: 0 !important;
+    }
+  }
+
+  .alert {
+    padding: 8px 12px;
+
+    [data-dismiss="alert"] {
+      padding: 6px 12px;
+    }
+  }
+
+}

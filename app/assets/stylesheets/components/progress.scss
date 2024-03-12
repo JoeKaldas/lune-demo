@@ -1,0 +1,27 @@
+.progress-indicator {
+  background-color: $ui-gray-200;
+  border-radius: 5px;
+  color: $body-color !important;
+  display: block;
+  height: 18px;
+  min-width: 100px;
+  text-align: left !important;
+  width: 100%;
+
+  .bar {
+    background-color: $ui-primary-300;
+    border-radius: 5px;
+    display: inline-block;
+    height: 18px;
+    white-space: nowrap;
+  }
+
+  span {
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+    padding-left: 6px;
+    text-shadow: 0 0 3px white;
+  }
+}
