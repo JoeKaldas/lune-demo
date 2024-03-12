@@ -1,5 +1,5 @@
 class Actor < ApplicationRecord
-  before_update :sync_full_name
+  before_save :sync_full_name
 
   normalizes :first_name, :last_name, :full_name, with: ->(attribute) { attribute.strip }
 

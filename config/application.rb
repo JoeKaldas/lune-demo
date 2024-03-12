@@ -11,6 +11,11 @@ module LuneDemo
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
+    # https://guides.rubyonrails.org/classic_to_zeitwerk_howto.html#having-app-in-the-autoload-paths
+    config.eager_load_paths += [
+      Rails.root.join("app")
+    ]
+
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.

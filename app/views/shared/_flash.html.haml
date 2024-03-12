@@ -1,0 +1,8 @@
+.mb-3.alerts#flash-messages{ data: { stream_enter_class: "animate-in", stream_exit_class:"animate-out" } }
+  - %i[notice alert error success warning].each do |level|
+    - if flash[level]
+      - levels = { success: 'success', alert: 'danger', error: 'danger', warning: 'warning', notice: 'info' }
+      .alert.flash.alert-dismissible.fade.show{ class: "alert-#{levels[level]}" }
+        = m flash[level], strip: true
+        %button.btn-close{ type: 'button', data: { bs_dismiss: 'alert' } }
+      - flash.clear

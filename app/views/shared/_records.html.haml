@@ -1,0 +1,35 @@
+:ruby
+  total ||= 0
+  nopagination ||= false
+  record_options ||= {}
+  partial ||= nil
+
+%div{ data: { controller: "search" } }
+  - if total.positive?
+    = content_for(:search)
+
+  = turbo_frame_tag "records_listing" do
+    .listing.mt-4#records
+      - if records.present?
+        .d-flex.justify-content-between
+          .d-flex.flex-wrap
+            - unless nopagination
+              #page-entries-info-wrapper.me-3
+                = render "shared/page_entries_info"
+            - if content_for(:search_result_actions)
+              .pb-3
+                = yield(:search_result_actions)
+          = content_for(:sort)
+        .mb-4
+          = content_for(:records) || partial && render(partial: partial, collection: records) || render(records, **record_options)
+
+        - unless nopagination
+          = pagy_bootstrap_nav(@pagy).html_safe
+        = yield
+
+      - else
+        .empty#page-entries-info
+          - if total.zero? && content_for(:empty)
+            = yield(:empty)
+          - else
+            = t("misc.no_results")

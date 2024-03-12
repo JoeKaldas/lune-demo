@@ -1,0 +1,28 @@
+%meta{ charset: "utf-8" }
+%meta{ "http-equiv": "X-UA-Compatible", content: "IE=Edge" }
+%meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+
+= csrf_meta_tags
+
+%title Lune
+
+%link{ rel: "preconnect", href: "https://fonts.googleapis.com" }
+%link{ rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true }
+
+= javascript_include_tag "application", data: { turbo_track: "reload" }, defer: true
+= stylesheet_link_tag "application", media: "all", data: { turbo_track: "reload" }
+= favicon_link_tag "favicon.ico"
+
+= content_for(:head)
+
+- if Rails.env.test?
+  -# minimize all bootstrap/jquery animation effects such as fade to avoid
+     tests having to wait for them or, worse, not waiting and failing
+  :css
+    .modal.fade, .fade {
+      -webkit-transition: opacity 0.01s;
+      -moz-transition: opacity 0.01s;
+      -ms-transition: opacity 0.01s;
+      -o-transition: opacity 0.01s;
+      transition: opacity 0.01s;
+    }

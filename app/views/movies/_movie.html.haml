@@ -1,0 +1,10 @@
+= turbo_frame_tag dom_id(movie) do
+  .card.card-colored
+    .card-body
+      .form-row.align-items-center
+        .col-3.col-md-4.order-1
+          = movie.name
+        .col-3.col-md-6.order-2
+          = movie.description.truncate(60)
+        .col-3.col-md-2.order-3
+          = movie.year

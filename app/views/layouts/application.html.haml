@@ -1,0 +1,19 @@
+!!! 5
+%html{ lang: I18n.locale }
+  %head
+    = render "layouts/head"
+    = yield :head
+
+  %body.portal
+    = render "shared/flash"
+    = render "shared/remote_modal"
+
+    .container-fluid.pt-2
+      #content{ class: @full_width ? nil : "fixed mx-auto" }
+        - if content_for(:page_header)
+          .page-header
+            = content_for(:page_header)
+        %main
+          = yield
+
+    = content_for :render_async

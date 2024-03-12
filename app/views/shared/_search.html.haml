@@ -1,0 +1,45 @@
+:ruby
+  placeholder ||= "Search..."
+  filtered = @filter&.ransack_keys&.present?
+  columns ||= @full_width
+  columns = true
+
+= form_with(url:,
+  id: "search-form",
+  method: :get,
+  data: { search_target: "form",
+          turbo_frame: "records_listing",
+          turbo_action: "advance",
+          action: "turbo:submit-end->search#formResponseCallback" }) do
+
+  = hidden_field_tag "q[s]", @filter&.sort || params.dig(:q, :s), data: { search_target: "sort" }
+
+  .row
+    %div{ class: columns ? "col-lg-5" : "col-lg-12" }
+      .form-group.remote-input.search
+        = text_field_tag "q[any_cont]",
+          params.dig(:q, :any_cont),
+          placeholder: placeholder,
+          class: "form-control search-field",
+          id: "search",
+          autofocus: true,
+          aria: { label: t("misc.search") },
+          data: { search_target: "searchInput" }
+    
+    %div{ class: columns ? "col-lg-7" : "col-lg-12" }
+      .form-group
+        = content_for(:search_extra)
+
+  - if filtered
+    .mt-0
+      = link_to t(".filter"), ".toggle-advanced", data: { bs_toggle: "collapse" }
+      %i.ms-1.fas.fa-caret-right.toggle-advanced.collapse{ class: @filter&.active? || "show" }
+      %i.fas.fa-caret-down.toggle-advanced.collapse{ class: @filter&.active? && "show" }
+
+    .toggle-advanced.pt-2.collapse#filter-modal{ class: @filter&.active? && "show" }
+      = yield
+      = search_reset_tag
+
+  - else
+    .pt-2
+      = yield

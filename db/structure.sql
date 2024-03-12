@@ -119,6 +119,16 @@ CREATE TABLE public.movies (
 
 
 --
+-- Name: movies_actors; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.movies_actors (
+    movie_id bigint NOT NULL,
+    actor_id bigint NOT NULL
+);
+
+
+--
 -- Name: movies_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -640,6 +650,13 @@ ALTER TABLE ONLY public.solid_queue_semaphores
 
 
 --
+-- Name: index_movies_actors; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_movies_actors ON public.movies_actors USING btree (movie_id, actor_id);
+
+
+--
 -- Name: index_solid_queue_blocked_executions_for_maintenance; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -840,6 +857,7 @@ ALTER TABLE ONLY public.solid_queue_scheduled_executions
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20240312153045'),
 ('20240312152508'),
 ('20240312152503'),
 ('20240312152459'),
